@@ -1,0 +1,36 @@
+{
+  "name": "hexies-marketplace-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "vercel deploy",
+    "deploy:prod": "vercel deploy --prod",
+    "db:setup": "node scripts/setup-database.js"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "stripe": "^12.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.22.0"
+  }
+}
+
+# vercel.json - Vercel deployment configuration
+{
+  "functions": {
+    "app/api/**/*.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_key",
+    "JWT_SECRET": "@jwt_secret",
+    "STRIPE_SECRET_KEY": "@stripe_secret",
+    "STRIPE_WEBHOOK_SECRET": "@stripe_webhook_secret"
+  }
+}

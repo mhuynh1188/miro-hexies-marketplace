@@ -1,0 +1,13 @@
+# app-manifest.yaml
+appName: Hexies Marketplace
+sdkVersion: SDK_V2
+appUrl: http://localhost:3000
+redirectUrl: http://localhost:3000
+permissions:
+  - boards:read
+  - boards:write  
+  - identity:read
+scopes:
+  - boards:read
+  - boards:write
+  - identity:read
